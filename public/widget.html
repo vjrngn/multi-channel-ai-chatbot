@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stride Shoes Help</title>
+  <style>
+    body { font: 16px system-ui, sans-serif; max-width: 480px; margin: 2rem auto; padding: 0 1rem; }
+    .customer { text-align: right; margin: .75rem 0; }
+    .bot { background: #f2f2f2; border-radius: 8px; padding: .75rem; white-space: pre-wrap; }
+    .note { font-size: 13px; color: #666; margin-top: .25rem; }
+    form { display: flex; gap: .5rem; margin-top: 1rem; }
+    input { flex: 1; padding: .5rem; }
+  </style>
+</head>
+<body>
+  <h1>Stride Shoes Help</h1>
+  <div id="messages"></div>
+  <form id="form"><input id="text" placeholder="Ask about orders, returns, refunds…" autofocus><button>Send</button></form>
+  <script>
+    const sessionId = crypto.randomUUID()
+    function add(className, text) {
+      const div = document.createElement('div')
+      div.className = className
+      div.textContent = text
+      messages.append(div)
+    }
+
+    form.onsubmit = async (event) => {
+      event.preventDefault()
+      add('customer', text.value)
+      const body = JSON.stringify({ sessionId, text: text.value })
+      text.value = ''
+      const reply = await (await fetch('/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body })).json()
+      add('bot', reply.text)
+      if (reply.sources.length) add('note', 'Sources: ' + reply.sources.join(', '))
+      if (reply.handover) add('note', '→ A person from our team will reply here')
+    }
+  </script>
+</body>
+</html>
