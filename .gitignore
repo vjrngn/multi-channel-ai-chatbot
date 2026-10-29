@@ -1,3 +1,4 @@
 node_modules
-data/pg
+data/*
+!data/.gitkeep
 .env
