@@ -1,0 +1,26 @@
+$ printf 'Can I return shoes after 30 days?\nWhat about sale items?\nMy order arrived damaged.\n' | pnpm chat
+
+> support-bot-demo@ chat /Users/vijayrangan/code/support-bot-demo
+> MODEL=cli tsx src/channels/cli.ts
+
+
+You: Can I return shoes after 30 days?
+
+Bot: No, our 30-day return window has closed by then. After 30 days we can only take back shoes that are faulty. If your shoes have a fault, you can still send them back, and we'll refund you 5–7 working days after they reach us.
+
+(Source: Returns › Time limit; Refunds › How long they take)
+Sources: Returns › Time limit, Refunds › How long they take, Returns › Sale items
+
+You: What about sale items?
+
+Bot: Sale items can be returned within 14 days of delivery. They're refunded as store credit only, not to your original payment method.
+
+(Source: Returns › Sale items)
+Sources: Returns › Sale items
+
+You: My order arrived damaged.
+
+Bot: I'm sorry about that. I'm passing you to a person on our team now.
+→ Handing over to a person
+
+You: 

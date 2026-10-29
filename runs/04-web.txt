@@ -1,0 +1,20 @@
+$ MODEL=cli pnpm web
+Stride Shoes support on http://localhost:3000/widget.html
+
+$ curl -s localhost:3000/chat -H 'Content-Type: application/json' -d '{"sessionId":"web-7f3a","text":"Can I return shoes after 30 days?"}' | jq
+{
+  "text": "Usually not, sorry. You can return shoes within 30 days of delivery if they're unworn and in the original box. After 30 days we only accept returns of faulty items, and late returns are only refunded if the shoes are faulty. (Source: Returns › Time limit; Refunds › How long they take)\n\nIf your shoes are faulty, or you'd like to talk it through with someone, I can pass you to a person.",
+  "sources": [
+    "Returns › Time limit",
+    "Refunds › How long they take",
+    "Returns › Sale items"
+  ],
+  "handover": false
+}
+
+$ curl -s localhost:3000/chat -H 'Content-Type: application/json' -d '{"sessionId":"web-7f3a","text":"My order arrived damaged."}' | jq
+{
+  "text": "I'm sorry about that. I'm passing you to a person on our team now.",
+  "sources": [],
+  "handover": true
+}

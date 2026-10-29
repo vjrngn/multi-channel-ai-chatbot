@@ -1,0 +1,16 @@
+$ pnpm ingest:pg
+Postgres (PGlite + pgvector): 15 sections in table chunks
+Took 0.9s
+
+$ printf 'Can I return shoes after 30 days?\n' | KNOWLEDGE=pg pnpm -s chat
+
+You: Can I return shoes after 30 days?
+
+Bot: Generally no, sorry. Returns are accepted within 30 days of delivery, as long as the shoes are unworn and in the original box. After 30 days, we only accept returns of faulty items. (Source: Returns › Time limit)
+
+If your shoes are faulty, you can still send them back after 30 days and get a refund. Late returns of shoes that aren't faulty aren't refunded. (Source: Refunds › How long they take)
+
+If you'd like, I can pass your question to someone on our team.
+Sources: Returns › Time limit, Refunds › How long they take, Returns › Sale items
+
+You: 

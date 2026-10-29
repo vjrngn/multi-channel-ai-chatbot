@@ -1,0 +1,25 @@
+# terminal 1: server
+$ MODEL=cli WHATSAPP_APP_SECRET=test-secret WHATSAPP_VERIFY_TOKEN=test-verify-token pnpm web
+Stride Shoes support on http://localhost:3000/widget.html
+whatsapp: wamid.TEST1793257699496 from 919800000001: Can I return shoes after 30 days?
+[consoleSender] would send to 919800000001:
+Generally no. You can return shoes within 30 days of delivery, as long as they're unworn and in the original box. After 30 days we only accept returns of faulty items. Late returns are only refunded if the shoes are faulty. (Source: Returns › Time limit; Refunds › How long they take)
+
+If your shoes are faulty, I can pass you to a member of our team to help with the return.
+whatsapp: wamid.TEST1793257707009 from 919800000001: What about sale items?
+whatsapp: skipped wamid.TEST1793257707009 (already seen)
+[consoleSender] would send to 919800000001:
+Sale items can be returned within 14 days of delivery. They're refunded as store credit only, not to your original payment method. (Source: Returns › Sale items)
+
+Do you need help with anything else?
+
+# terminal 2: replay WhatsApp webhooks
+$ WHATSAPP_APP_SECRET=test-secret pnpm -s whatsapp-replay "Can I return shoes after 30 days?"
+Delivery 1 of wamid.TEST1793257699496: 200
+
+$ WHATSAPP_APP_SECRET=test-secret pnpm -s whatsapp-replay "What about sale items?" --twice
+Delivery 1 of wamid.TEST1793257707009: 200
+Delivery 2 of wamid.TEST1793257707009: 200
+
+$ WHATSAPP_APP_SECRET=wrong-secret pnpm -s whatsapp-replay "Hello"
+Delivery 1 of wamid.TEST1793257714029: 401

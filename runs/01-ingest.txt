@@ -1,0 +1,5 @@
+$ npx tsx src/ingest.ts
+Files: 6
+Sections: 15
+Vectors: 384 numbers each
+Took 0.3s

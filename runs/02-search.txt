@@ -1,0 +1,6 @@
+$ npx tsx scripts/search.ts "Can I return shoes after 30 days?"
+Question: Can I return shoes after 30 days?
+
+1. 0.834  Returns › Time limit
+2. 0.687  Refunds › How long they take
+3. 0.511  Returns › Sale items

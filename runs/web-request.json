@@ -1,0 +1,25 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "http://localhost:3000/chat",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "sessionId": "web-7f3a",
+      "text": "Can I return shoes after 30 days?"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "text": "Usually not, sorry. You can return shoes within 30 days of delivery if they're unworn and in the original box. After 30 days we only accept returns of faulty items, and late returns are only refunded if the shoes are faulty. (Source: Returns › Time limit; Refunds › How long they take)\n\nIf your shoes are faulty, or you'd like to talk it through with someone, I can pass you to a person.",
+      "sources": [
+        "Returns › Time limit",
+        "Refunds › How long they take",
+        "Returns › Sale items"
+      ],
+      "handover": false
+    }
+  }
+}

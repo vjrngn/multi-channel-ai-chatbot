@@ -1,0 +1,18 @@
+$ npm test
+
+> test
+> vitest run --reporter=verbose
+
+
+ RUN  v5.0.5 /Users/vijayrangan/code/support-bot-demo
+
+ ✓ test/supportBot.test.ts > support bot > hands over a damaged order without calling the model 1ms
+ ✓ test/supportBot.test.ts > support bot > hands over when the help centre has nothing close enough 1ms
+ ✓ test/supportBot.test.ts > support bot > includes the sections it used as sources 0ms
+ ✓ test/supportBot.test.ts > support bot > puts the conversation so far into the prompt for follow-ups 0ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  12:42:52
+   Duration  73ms (import 44%, transform 28%, tests 17%, worker 11%)
+
